@@ -1,10 +1,10 @@
 
-(function(customersController)
+(function(billsController)
 {
     var data= require('../data');
-    customersController.init=function(app)
+    billsController.init=function(app)
 {
-    app.get('/api/customers', function (req, res) {
+    app.get('/api/bills', function (req, res) {
         console.log('I received a GET request');
         res.set(
         {
@@ -13,7 +13,7 @@
         "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
         }
         )
-        data.getAllCustomers(function(err,customers)
+        data.getAllBills(function(err,bills)
         {
             if(err)
             {
@@ -22,13 +22,13 @@
             else
             {
                 res.set('Content-Type','application/json');
-                res.send(customers);
+                res.send(bills);
             }
         })
      })
 
 
-    app.get('/api/customers/:id', function (req, res) {
+    app.get('/api/customers/bills/:id', function (req, res) {
         const { id }=req.params;
         console.log('I received a GET request1');
         res.set(
@@ -38,7 +38,7 @@
         "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
         }
         )
-        data.getCustomer(id,function(err,customers)
+        data.getBillsCustomer(id,function(err,customers)
         {
             console.log(id);
             if(err)

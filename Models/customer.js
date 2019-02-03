@@ -2,10 +2,10 @@ const mongoose= require('mongoose');
 const schema=mongoose.Schema;
 
 const customerSchema = new schema({
-    CustomerName: String,
-    CustomerPhone: String,
-    CustomerAni:Date,
-    CustomerBDay:Date
+    customerName: String,
+    customerPhone: String,
+    customerAni:Date,
+    customerBDay:Date
 });
 
 module.exports = mongoose.model('Customer', customerSchema,'Customer');
